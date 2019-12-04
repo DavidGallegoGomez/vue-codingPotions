@@ -14,11 +14,16 @@
             </span>
             </li>
         </ul>
-        <p>{{ calculate() }}</p>
+        <p>{{ calculateOut() }} - {{ calculateOut() }} - {{ calculateOut() }}</p>
+        <!-- <button @click="calculate()">Calculate</button> -->
+        <button @click="increment()">Increment</button>
+        <span> Current value: {{ miValor }}</span>
+        <p> Computed: {{ doble }} - Methods: {{ calculate() }}</p>
     </div>
 </template>
 
 <script>
+let total = 0;
 export default {
     name: "MiComponente",
     data: () => ({
@@ -44,12 +49,27 @@ export default {
             this.miVariable = this.miVariable + " No Ejecutable";
         },
         calculate() {
-            let aux = this.miValor * 2;
+            let aux = this.miValor * 3;
+            this.double(aux);
             /* eslint-disable no-console */
             console.log(aux);
             /* eslint-enable no-console */
             return aux;
+        },
+        double(value) {
+            return value * 2;
+        },
+        calculateOut() {
+            // let total = 0;
+            total++;
+            return total;
+        },
+        increment() {
+            this.miValor++;
         }
+    },
+    computed: {
+        doble() { return this.miValor * 2; }
     }
 }
 </script>
