@@ -14,6 +14,7 @@
             </span>
             </li>
         </ul>
+        <p>{{ calculate() }}</p>
     </div>
 </template>
 
@@ -35,8 +36,21 @@ export default {
         styleObject: {
             padding: "10px",
             fontSize: "16px"
+        },
+        miValor: 20
+    }),
+    methods: {
+        print() {
+            this.miVariable = this.miVariable + " No Ejecutable";
+        },
+        calculate() {
+            let aux = this.miValor * 2;
+            /* eslint-disable no-console */
+            console.log(aux);
+            /* eslint-enable no-console */
+            return aux;
         }
-    })
+    }
 }
 </script>
 
